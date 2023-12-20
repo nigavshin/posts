@@ -55,7 +55,6 @@ function Posts() {
 
   return (
     <div className="app">
-      <MyButton onClick={fetchPosts}>Get posts</MyButton>
       <MyButton style={{ marginTop: 30 }} onClick={() => setModal(true)}>
         Создать пользователя
       </MyButton>
@@ -80,7 +79,7 @@ function Posts() {
         posts={sortedAndSearchedPosts}
         title={"Список постов 1"}
       />
-      <div ref={lastElement} style={{ height: 20, background: "red" }}></div>
+      <div ref={lastElement} style={{ height: 20 }}></div>
       {isPostLoading && (
         <div
           style={{

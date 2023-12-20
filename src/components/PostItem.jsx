@@ -6,10 +6,8 @@ function PostItem(props) {
   return (
     <div className="post">
       <div className="post__content">
-        <strong>
-          {props.post.id}. {props.post.title}
-        </strong>
-        <div>{props.post.body}</div>
+        <strong className="post__strong">{props.post.title}</strong>
+        <p className="post__description">{props.post.body}</p>
       </div>
       <div className="post__btns">
         <MyButton onClick={() => navigate(`/posts/${props.post.id}`)}>

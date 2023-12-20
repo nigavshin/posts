@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import MyButton from "../button/MyButton";
 import { useContext } from "react";
 import { AuthContext } from "../../../context";
@@ -13,17 +13,35 @@ function NavBar() {
 
   return (
     <div className="navbar">
-      <MyButton onClick={logout}>Выйти</MyButton>
+      {isAuth && (
+        <MyButton
+          style={{ position: "absolute", right: "0.5rem" }}
+          onClick={logout}
+        >
+          Выйти
+        </MyButton>
+      )}
+
       <ul className="navbar__links">
         <li className="navbar__item">
-          <Link className="navbar__link" to="/about">
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "navbar__link--active" : "navbar__link"
+            }
+          >
             О Сайте
-          </Link>
+          </NavLink>
         </li>
         <li className="navbar__item">
-          <Link className="navbar__link" to="/posts">
+          <NavLink
+            to="/posts"
+            className={({ isActive }) =>
+              isActive ? "navbar__link--active" : "navbar__link"
+            }
+          >
             Посты
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>
